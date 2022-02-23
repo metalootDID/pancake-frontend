@@ -88,7 +88,8 @@ export function useExchangeChartManager(isMobile: boolean): [boolean, (isDisplay
     [dispatch],
   )
 
-  return [isMobile ? false : isChartDisplayed, setUserChartPreference]
+  return [false, setUserChartPreference]
+  // return [isMobile ? false : isChartDisplayed, setUserChartPreference]
 }
 
 export function useExchangeChartViewManager() {

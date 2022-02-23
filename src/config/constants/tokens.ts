@@ -30,6 +30,14 @@ export const mainnetTokens = defineTokens({
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  loot: new Token(
+    MAINNET,
+    '0xf3FC7ffbDaf0a18a619Af326B7159CAD0867d15F',
+    18,
+    'LOOT',
+    'PancakeSwap Token',
+    'https://pancakeswap.finance/',
+  ),
   tlos: new Token(MAINNET, '0xb6C53431608E626AC81a9776ac3e999c5556717c', 18, 'TLOS', 'Telos', 'https://www.telos.net/'),
   beta: new Token(
     MAINNET,
@@ -2020,6 +2028,14 @@ export const testnetTokens = defineTokens({
     'PancakeSwap Token',
     'https://pancakeswap.finance/',
   ),
+  loot: new Token(
+    TESTNET,
+    '0xf3FC7ffbDaf0a18a619Af326B7159CAD0867d15F',
+    18,
+    'LOOT',
+    'PancakeSwap Token',
+    'https://pancakeswap.finance/',
+  ),
   busd: new Token(
     TESTNET,
     '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
@@ -2060,7 +2076,6 @@ const tokens = () => {
 }
 
 const unserializedTokens = tokens()
-
 type SerializedTokenList = Record<keyof typeof unserializedTokens, SerializedToken>
 
 export const serializeTokens = () => {
@@ -2070,5 +2085,4 @@ export const serializeTokens = () => {
 
   return serializedTokens
 }
-
 export default unserializedTokens

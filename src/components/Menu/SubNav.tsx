@@ -10,12 +10,12 @@ const StyledNav = styled.nav`
 
 const getActiveIndex = (pathname: string): number => {
   if (
-    pathname.includes('/pool') ||
+    pathname.includes('./pool') ||
     pathname.includes('/create') ||
     pathname.includes('/add') ||
     pathname.includes('/remove') ||
     pathname.includes('/find') ||
-    pathname.includes('/liquidity')
+    pathname.includes('./liquidity')
   ) {
     return 1
   }

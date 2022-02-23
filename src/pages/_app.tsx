@@ -83,7 +83,7 @@ function MyApp(props: AppProps) {
           </PersistGate>
         </Blocklist>
       </Providers>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         id="google-tag"
         dangerouslySetInnerHTML={{
@@ -95,7 +95,7 @@ function MyApp(props: AppProps) {
             })(window,document,'script','dataLayer', '${process.env.NEXT_PUBLIC_GTAG}');
           `,
         }}
-      />
+      /> */}
     </>
   )
 }

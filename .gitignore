@@ -40,3 +40,5 @@ src/config/abi/types
 
 # Sentry
 .sentryclirc
+.vercel
+yarn.lock
