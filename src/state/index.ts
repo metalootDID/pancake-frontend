@@ -3,7 +3,6 @@ import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import blockReducer from './block'
 import burn from './burn/reducer'
 import farmsReducer from './farms'
 import { updateVersion } from './global/actions'
@@ -15,27 +14,25 @@ import multicall from './multicall/reducer'
 import nftMarketReducer from './nftMarket/reducer'
 import poolsReducer from './pools'
 import predictionsReducer from './predictions'
-import profileReducer from './profile'
 import swap from './swap/reducer'
 import transactions from './transactions/reducer'
 import user from './user/reducer'
 
-const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists', 'profile']
+const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists']
 
 const persistConfig = {
   key: 'primary',
   whitelist: PERSISTED_KEYS,
+  blacklist: ['profile'],
   storage,
 }
 
 const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
-    block: blockReducer,
     farms: farmsReducer,
     pools: poolsReducer,
     predictions: predictionsReducer,
-    profile: profileReducer,
     lottery: lotteryReducer,
     info: infoReducer,
     nftMarket: nftMarketReducer,

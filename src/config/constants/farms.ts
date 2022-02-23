@@ -42,6 +42,59 @@ const farms: SerializedFarmConfig[] = [
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
   {
+    pid: 488,
+    lpSymbol: 'THG-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x486697ae24469cB1122F537924Aa46E705B142Aa',
+    },
+    token: serializedTokens.thg,
+    quoteToken: serializedTokens.wbnb,
+  },
+  {
+    pid: 513,
+    lpSymbol: 'ERA-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x53a63ac301d6410915385294527f947aff616599',
+    },
+    token: serializedTokens.era,
+    quoteToken: serializedTokens.wbnb,
+  },
+  {
+    pid: 511,
+    lpSymbol: 'LOA-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0xff1e1650A13000E7524E16629dB05e4D6b83a092',
+    },
+    token: serializedTokens.loa,
+    quoteToken: serializedTokens.busd,
+    isCommunity: true,
+  },
+  {
+    pid: 512,
+    lpSymbol: 'FIGHT-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0xB9378A7D4F47aC8Cf78b4f18ED15A875aB0C89a1',
+    },
+    token: serializedTokens.fight,
+    quoteToken: serializedTokens.busd,
+    isCommunity: true,
+  },
+  {
+    pid: 386,
+    lpSymbol: 'HOTCROSS-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0xf23bad605e94de0e3b60c9718a43a94a5af43915',
+    },
+    token: serializedTokens.hotcross,
+    quoteToken: serializedTokens.wbnb,
+    isCommunity: true,
+  },
+  {
     pid: 510,
     lpSymbol: 'BTT-BUSD',
     lpAddresses: {
@@ -60,17 +113,6 @@ const farms: SerializedFarmConfig[] = [
     },
     token: serializedTokens.ach,
     quoteToken: serializedTokens.usdt,
-  },
-  {
-    pid: 386,
-    lpSymbol: 'HOTCROSS-BNB LP',
-    lpAddresses: {
-      97: '',
-      56: '0xf23bad605e94de0e3b60c9718a43a94a5af43915',
-    },
-    token: serializedTokens.hotcross,
-    quoteToken: serializedTokens.wbnb,
-    isCommunity: true,
   },
   {
     pid: 508,
@@ -299,16 +341,6 @@ const farms: SerializedFarmConfig[] = [
       56: '0x141e9558f66Cc21c93628400cCa7d830c15c2c24',
     },
     token: serializedTokens.dpt,
-    quoteToken: serializedTokens.wbnb,
-  },
-  {
-    pid: 488,
-    lpSymbol: 'THG-BNB LP',
-    lpAddresses: {
-      97: '',
-      56: '0x486697ae24469cB1122F537924Aa46E705B142Aa',
-    },
-    token: serializedTokens.thg,
     quoteToken: serializedTokens.wbnb,
   },
   {

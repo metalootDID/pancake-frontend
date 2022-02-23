@@ -1,4 +1,3 @@
-import React from 'react'
 import { Flex } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import PageSection from 'components/PageSection'
@@ -20,7 +19,7 @@ import UserBanner from './components/UserBanner'
 // import FarmAuctionsBanner from './components/Banners/FarmAuctionsBanner'
 import IFOBanner from './components/Banners/IFOBanner'
 
-const showBanner = true
+const showBanner = false
 
 const HomeBanner = ({ account }: { account: string }) => {
   if (!showBanner) {

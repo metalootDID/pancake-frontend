@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   ModalContainer,
   ModalBody,
@@ -32,7 +31,7 @@ const ChartDisclaimer: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const { t } = useTranslation()
 
   const handleConfirm = () => {
-    onDismiss()
+    onDismiss?.()
   }
 
   return (

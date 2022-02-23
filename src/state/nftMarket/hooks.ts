@@ -9,10 +9,13 @@ import { useSWRMulticall } from 'hooks/useSWRContract'
 import { EMPTY_ARRAY, EMPTY_OBJECT } from 'utils/constantObjects'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'
 import useSWR from 'swr'
+import useSWRImmutable from 'swr/immutable'
+import isEmpty from 'lodash/isEmpty'
+import shuffle from 'lodash/shuffle'
 
 import { fetchNewPBAndUpdateExisting } from './reducer'
 import { State } from '../types'
-import { ApiCollections, NftActivityFilter, NftFilter, NftToken } from './types'
+import { ApiCollections, NftActivityFilter, NftFilter, NftToken, Collection } from './types'
 import { getCollection, getCollections } from './helpers'
 
 const DEFAULT_NFT_ORDERING = { field: 'currentAskPrice', direction: 'asc' as 'asc' | 'desc' }
@@ -76,7 +79,7 @@ export const useGetCollections = (): { data: ApiCollections; status: FetchStatus
   return { data: collections, status }
 }
 
-export const useGetCollection = (collectionAddress: string) => {
+export const useGetCollection = (collectionAddress: string): Collection | undefined => {
   const checksummedCollectionAddress = isAddress(collectionAddress) || ''
   const { data } = useSWR(
     checksummedCollectionAddress ? ['nftMarket', 'collections', checksummedCollectionAddress.toLowerCase()] : null,
@@ -84,6 +87,18 @@ export const useGetCollection = (collectionAddress: string) => {
   )
   const collectionObject = data ?? {}
   return collectionObject[checksummedCollectionAddress]
+}
+
+export const useGetShuffledCollections = (): { data: ApiCollections; status: FetchStatus } => {
+  const { data } = useSWRImmutable(['nftMarket', 'collections'], async () => getCollections())
+  const collections = data ?? ({} as ApiCollections)
+  const { data: shuffledCollections = {}, status } = useSWRImmutable(
+    !isEmpty(collections) ? ['nftMarket', 'shuffledCollections'] : null,
+    () => {
+      return shuffle(collections)
+    },
+  )
+  return { data: shuffledCollections, status }
 }
 
 export const useNftsFromCollection = (collectionAddress: string) => {

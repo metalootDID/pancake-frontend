@@ -126,12 +126,14 @@ export interface SerializedFarmsState {
   loadArchivedFarmsData: boolean
   userDataLoaded: boolean
   loadingKeys: Record<string, boolean>
+  poolLength?: number
 }
 
 export interface DeserializedFarmsState {
   data: DeserializedFarm[]
   loadArchivedFarmsData: boolean
   userDataLoaded: boolean
+  poolLength?: number
 }
 
 export interface VaultFees {
@@ -176,22 +178,6 @@ export interface PoolsState {
   userDataLoaded: boolean
 }
 
-export interface ProfileState {
-  isInitialized: boolean
-  isLoading: boolean
-  hasRegistered: boolean
-  data: Profile
-  profileAvatars: {
-    [key: string]: {
-      username: string
-      nft: NftToken
-      hasRegistered: boolean
-      usernameFetchStatus: FetchStatus
-      avatarFetchStatus: FetchStatus
-    }
-  }
-}
-
 export type TeamsById = {
   [key: string]: Team
 }
@@ -204,13 +190,6 @@ export interface Achievement {
   description?: TranslatableText
   badge: string
   points: number
-}
-
-// Block
-
-export interface BlockState {
-  currentBlock: number
-  initialBlock: number
 }
 
 // Predictions
@@ -540,11 +519,9 @@ export interface UserRound {
 // Global state
 
 export interface State {
-  block: BlockState
   farms: SerializedFarmsState
   pools: PoolsState
   predictions: PredictionsState
-  profile: ProfileState
   lottery: LotteryState
   nftMarket: NftMarketState
 }
